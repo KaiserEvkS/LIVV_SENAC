@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f9;
+}
+
+header {
+  background-color: #102361;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  background-color: #1a1b70;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  background-color: #0f1a57;
+}
+
+/* carrossel pego do bootstrap kkk */
+/* estilo do carrossel */
+#carouselExampleCaptions{
+  display: flex;
+  justify-content: center;
+  margin:auto;
+  margin-top: 3%;
+  width: 95%;
+  row-gap:0.5rem ;
+}
+/* esilo da imagem do carrossel */
+.carousel-inner img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* style dos produtos  */
+.produto {
+  display: flex;
+  gap: 4rem;
+  margin-top: 2%;
+  margin-left: 2%;
+  padding-left: 2%;
+  align-items: center;
+  width: 90%;
+  height: 200px;
+  justify-content: flex-start;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  transition: 0.3s ease;
+}
+
+.produto:hover {
+  transform: scale(1.01);
+}
+/* estilo da imagem */
+.produto img {
+  height: 150px;
+  border-radius: 5%;
+}
+.card-desc{
+  border: 0px solid;
+}
+/* estilo do titulo */
+.card-title {
+  font-size: 1.3rem;
+  color: #333;
+  margin: 0 0 10px;
+}
+/* estilo da descrição */
+.descricao {
+  font-size: 0.95rem;
+  color: #666;
+}
+/* estilo do valor */
+.card-price {
+  justify-content: start;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #556b2f;
+}
+ 
+
+/* copy do site */
+footer {
+  background-color: #4b2e83;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
