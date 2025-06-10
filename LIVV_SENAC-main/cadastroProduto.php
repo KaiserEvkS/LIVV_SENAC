@@ -10,7 +10,7 @@ if (isset($_POST['tipoprod'], $_POST['nome'], $_POST['preco'], $_FILES['imagem']
 
     // Lida com o upload da imagem
     $imagem = $_FILES['imagem'];
-    $pasta = "uploads/";
+    $pasta = "imagem/";
 
     if (!is_dir($pasta)) {
         mkdir($pasta, 0755, true);
@@ -28,7 +28,8 @@ if (isset($_POST['tipoprod'], $_POST['nome'], $_POST['preco'], $_FILES['imagem']
                 VALUES ('$tipoprod', '$nome', '$preco', '$img')";
 
         if (mysqli_query($conexao, $sql)) {
-            echo "<br>Dados do produto salvos com sucesso!";
+            echo "<script> alert('Dados do produto salvos com sucesso');
+                  window.location.href='home.html'; </script>";
         } else {
             echo "<br>Erro ao salvar no banco de dados: " . mysqli_error($conexao);
         }

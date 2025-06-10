@@ -17,14 +17,43 @@
         <p>Descubra um mundo de experiências gastronômicas</p>
     </header>
 
-    <nav>
-        <a href="home.html" target="_self" id="link-home">Início</a>
-        <a href="produtos.html" target="_parent" id="link-produtos">Produtos</a>
-        <a href="sobre.html" id="link-sobre">Sobre</a>
-        <a href="contato.html" id="link-contato">Contato</a>
-        <a href="pedidos.html" id="link-pedidos">Pedido</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="home.html" id="link-home" target="_self">Início</a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="selectIMG.php" id="link-select-produtos" target="_self">Produtos</a>
+                    </li>
+
+                    <li class="nav-item">
+                          <a class="nav-link" href="sobre.html" id="link-select-sobre" target="_self">Sobre</a>  
+                    </li>
+
+                    <li class="nav-item">
+                         <a class="nav-link" href="contato.html" id="link-select-contato" target="_self">Contato</a>
+                    </li>
+
+                    <li class="nav-item">
+                         <a class="nav-link" href="pedidos.html" id="link-select-pedido" target="_self">Pedidos</a> 
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#" id="link-cadastro-produtos">Cadastro de Produtos</a>
+
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
     </nav>
 
+    <div id="conteudo-dinamico"></div>
 
     <div id="conteudo">
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
@@ -109,6 +138,38 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
             crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function () {
+                $('#link-cadastro-produtos').on('click', function (e) {
+                    e.preventDefault(); // Impede o link de recarregar a página
+                    $('#conteudo').hide(); // Esconde o carrossel
+                    $('#conteudo-dinamico').load('casdastroProdutos.html'); // Carrega o conteúdo do formulário
+                });
+            });
+            $('#link-select-produtos').on('click', function (e) {
+                e.preventDefault();
+                $('#conteudo').hide();
+                $('#conteudo-dinamico').load('selectIMG.php');
+            });
+             $('#link-select-pedido').on('click', function (e) {
+                e.preventDefault();
+                $('#conteudo').hide();
+                $('#conteudo-dinamico').load('pedidos.html');
+            });
+             $('#link-select-sobre').on('click', function (e) {
+                e.preventDefault();
+                $('#conteudo').hide();
+                $('#conteudo-dinamico').load('sobre.html');
+            });
+             $('#link-select-contato').on('click', function (e) {
+                e.preventDefault();
+                $('#conteudo').hide();
+                $('#conteudo-dinamico').load('contato.html');
+            });
+
+        </script>
 </body>
+
 
 </html>
