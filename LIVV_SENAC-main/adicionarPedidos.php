@@ -2,13 +2,13 @@
 session_start();
 include("conexaoDelivery.php");
 
-// Simule o ID do usuário (substitua por $_SESSION['usuario'] ou similar no sistema real)
+// Simulando sessão de usuário (remova se não precisar)
 $usuario = 1;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_produto'])) {
     $id_produto = intval($_POST['id_produto']);
 
-    // Buscar os dados do produto
+    // Buscar dados do produto
     $sql_produto = "SELECT nome_produto, preco_produto FROM produtos WHERE id_produto = ?";
     $stmt = mysqli_prepare($conexao, $sql_produto);
     mysqli_stmt_bind_param($stmt, "i", $id_produto);
@@ -17,15 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_produto'])) {
     $produto = mysqli_fetch_assoc($result);
 
     if ($produto) {
-        $descricao = $produto['nome_produto'];
+        $nome = $produto['nome_produto'];
         $preco = $produto['preco_produto'];
-        $quantidade = 1; // você pode alterar conforme quiser
+        $quantidade = 1; // você pode ajustar isso com input depois
 
-        // Inserir pedido
-        $sql_insert = "INSERT INTO pedidos (id_produto, descricao, quantidade, preco, usuario)
-                       VALUES (?, ?, ?, ?, ?)";
+        // Inserir pedido na nova estrutura da tabela
+        $sql_insert = "INSERT INTO tb_pedido (nome_produto, preco, quantidade)
+                       VALUES (?, ?, ?)";
         $stmt_insert = mysqli_prepare($conexao, $sql_insert);
-        mysqli_stmt_bind_param($stmt_insert, "isidi", $id_produto, $descricao, $quantidade, $preco, $usuario);
+        mysqli_stmt_bind_param($stmt_insert, "sdi", $nome, $preco, $quantidade);
         mysqli_stmt_execute($stmt_insert);
 
         header("Location: selectIMG.php?msg=adicionado");
@@ -36,3 +36,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_produto'])) {
 } else {
     echo "Requisição inválida.";
 }
+?>

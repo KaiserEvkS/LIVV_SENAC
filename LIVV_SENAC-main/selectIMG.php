@@ -48,7 +48,7 @@ if ($result && mysqli_num_rows($result) > 0) {
             <div class="row">
                 <?php foreach ($produtos as $produto): ?>
                     <div class="col-md-4 mb-4">
-                        <form class="produto-form" method="POST" action="adicionarPedido.php">
+                        <form class="produto-form" method="POST" action="adicionarPedidos.php">
                             <input type="hidden" name="id_produto" value="<?= $produto['id_produto'] ?>">
                             <button type="submit">
                                 <div class="card h-100">
